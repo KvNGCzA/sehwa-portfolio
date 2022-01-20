@@ -6,9 +6,10 @@
     align-items:     center;
     display:         flex;
     flex-direction:  column;
+    height:          100vh;
     justify-content: center;
     margin-bottom:   130px;
-    min-height:      100vh;
+    min-height:      800px;
     padding:         110px 30px 100px;
     width:           100vw;
 
@@ -34,9 +35,11 @@
     .category-card {
       align-items:     center;
       display:         flex;
+      height:          100vh;
       justify-content: space-between;
-      margin:          0 auto 260px;
-      max-width:       1088px;
+      margin:          0 auto;
+      max-width:       1248px;
+      padding:         0 80px;
 
       &:nth-child(2n) {
         flex-direction: row-reverse;

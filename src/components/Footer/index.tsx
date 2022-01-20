@@ -22,7 +22,7 @@ const SOCIAL_ICONS: {
 
 export const Footer = () => {
   return (
-    <footer>
+    <footer id="footer">
       <span className="connect">Connect with me</span>
       <div className="social-icons">
         {SOCIAL_ICONS.map(({link, image, alt}) =>

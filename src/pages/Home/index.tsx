@@ -25,23 +25,29 @@ const SECTION_TWO = [
   }
 ];
 
-const SectionOne = () =>
-  <div
-    className="section section__one" style={{
-    background: `url('${Sewa}') no-repeat center`
-  }}>
-    <div className="intro-text">
-      <p className="content">
-        I am Product designer with experience in <b>UI/UX design</b>, <b>UX
-                                                                         copywriting</b> and <b>illustration</b> based
-        on earth.
-        Passionate about building great products, visual designs, branding & solving user problems through simple,
-        intuitive designs.
-      </p>
+const SectionOne = () => {
+  const handleLetsTalk = () => {
+    window.scrollTo({left: 0, top: document.body.scrollHeight, behavior: 'smooth'});
+  };
 
-      <Button text="Let's talk" className="lets-talk" />
-    </div>
-  </div>;
+  return (
+    <div
+      className="section section__one" style={{
+      background: `url('${Sewa}') no-repeat center`
+    }}>
+      <div className="intro-text">
+        <p className="content">
+          I am Product designer with experience in <b>UI/UX design</b>, <b>UX
+                                                                           copywriting</b> and <b>illustration</b> based
+          on earth.
+          Passionate about building great products, visual designs, branding & solving user problems through simple,
+          intuitive designs.
+        </p>
+
+        <Button text="Let's talk" className="lets-talk" handleClick={handleLetsTalk} />
+      </div>
+    </div>);
+};
 
 const CategoryCard = ({text, image, link}: CategoryCardProps) =>
   <div className="category-card">

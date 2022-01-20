@@ -4,20 +4,15 @@ import {Button} from '../Button';
 
 const LINKS = [
   {
-    link: '/',
-    text: 'Work'
+    link: '/uiux',
+    text: 'UI/UX Design'
+  }, {
+    link: '/branding',
+    text: 'Branding'
+  }, {
+    link: '/illustration',
+    text: 'Illustration'
   }
-
-//  , {
-//    link: '/uiux',
-//    text: 'UI/UX Design'
-//  }, {
-//    link: '/branding',
-//    text: 'Branding'
-//  }, {
-//    link: '/illustration',
-//    text: 'Illustration'
-//  }
 ];
 
 const isActive = ({isActive}: { isActive: boolean }): string => isActive ? 'nav__item nav__active' : 'nav__item';
