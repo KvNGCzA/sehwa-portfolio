@@ -1,0 +1,12 @@
+@import './src/assets/styles/functions';
+
+.btn {
+  border:      0;
+  font-family: Poppins;
+  font-size:   rem-calc(25);
+  font-weight: bold;
+
+  &__regular {
+    padding: 26px;
+  }
+}
