@@ -2,6 +2,24 @@ import './index.scss';
 import {Button} from '../../components/Button';
 import Sewa from '../../assets/images/sewa.svg';
 
+interface CategoryCardProps {
+  image: string;
+  text: string;
+}
+
+const SECTION_TWO = [
+  {
+    image: 'uiux',
+    text:  'UI/UX design'
+  }, {
+    image: 'branding',
+    text:  'Branding'
+  }, {
+    image: 'illustration',
+    text:  'Illustration'
+  }
+];
+
 const SectionOne = () =>
   <div
     className="section section__one" style={{
@@ -20,10 +38,16 @@ const SectionOne = () =>
     </div>
   </div>;
 
+const CategoryCard = ({text, image}: CategoryCardProps) =>
+  <div className="category-card">
+    <img src={`${process.env.PUBLIC_URL}/images/${image}.png`} className="category-image" alt={text} />
+    <p className="category-title">{text}</p>
+  </div>;
+
 const SectionTwo = () => {
   return (
     <div className="section section__two">
-
+      {SECTION_TWO.map(section => <CategoryCard {...section} key={section.text} />)}
     </div>
   );
 };

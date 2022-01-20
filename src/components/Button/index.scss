@@ -1,4 +1,5 @@
 @import './src/assets/styles/functions';
+@import './src/assets/styles/variables';
 
 .btn {
   border:      0;
@@ -7,6 +8,11 @@
   font-weight: bold;
 
   &__regular {
+    color:   $sehwa-text-primary;
     padding: 26px;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }

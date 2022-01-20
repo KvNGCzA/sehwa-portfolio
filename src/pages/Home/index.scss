@@ -7,11 +7,13 @@
     display:         flex;
     flex-direction:  column;
     justify-content: center;
+    margin-bottom:   130px;
     min-height:      100vh;
     padding:         110px 30px 100px;
     width:           100vw;
 
     .intro-text {
+      color:     $sehwa-text-primary;
       max-width: 1088px;
       position:  relative;
 
@@ -29,6 +31,27 @@
   }
 
   &__two {
+    .category-card {
+      align-items:     center;
+      display:         flex;
+      justify-content: space-between;
+      margin:          0 auto 260px;
+      max-width:       1088px;
 
+      &:nth-child(2n) {
+        flex-direction: row-reverse;
+      }
+
+      .category-image {
+        height:    auto;
+        max-width: 650px;
+      }
+
+      .category-title {
+        color:       $sehwa-text-primary;
+        font-family: Bauhaus;
+        font-size:   rem-calc(72);
+      }
+    }
   }
 }
