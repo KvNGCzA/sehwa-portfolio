@@ -1,0 +1,30 @@
+@import './src/assets/styles/functions';
+
+#header {
+  align-items:     center;
+  display:         flex;
+  height:          60px;
+  justify-content: space-between;
+  left:            0;
+  padding:         80px 70px;
+  position:        fixed;
+  top:             0;
+  width:           100%;
+
+  .logo {
+
+    h1 {
+      font-size:   rem-calc(24);
+      font-weight: 500;
+    }
+  }
+
+  .nav {
+    list-style: none;
+
+    &__item {
+      font-size:   rem-calc(24);
+      font-weight: 500;
+    }
+  }
+}
