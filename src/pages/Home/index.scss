@@ -43,14 +43,27 @@
       }
 
       .category-image {
-        height:    auto;
-        max-width: 650px;
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter:         grayscale(100%);
+        height:         auto;
+        max-width:      650px;
+
+        &:hover {
+          cursor:         pointer;
+          -webkit-filter: none;
+          filter:         none;
+        }
       }
 
       .category-title {
         color:       $sehwa-text-primary;
         font-family: Bauhaus;
         font-size:   rem-calc(72);
+
+        &:hover {
+          cursor:          pointer;
+          text-decoration: underline;
+        }
       }
     }
   }
