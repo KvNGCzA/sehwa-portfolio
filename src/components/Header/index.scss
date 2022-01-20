@@ -1,4 +1,5 @@
 @import './src/assets/styles/functions';
+@import './src/assets/styles/variables';
 
 #header {
   align-items:     center;
@@ -13,19 +14,41 @@
   z-index:         99;
 
   .logo {
+    a {
+      color:           $sehwa-text-primary;
+      text-decoration: none;
 
-    h1 {
-      font-size:   rem-calc(24);
-      font-weight: 500;
+      h1 {
+        font-size:   rem-calc(24);
+        font-weight: 500;
+      }
     }
   }
 
   .nav {
     list-style: none;
 
-    &__item {
-      font-size:   rem-calc(24);
-      font-weight: 500;
+    &__active {
+      .btn {
+        background:      url('../../assets/images/button-circle.svg') no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    .header-link {
+      color:           $sehwa-text-primary;
+      font-size:       rem-calc(24);
+      font-weight:     500;
+      margin:          0 10px;
+      text-decoration: none;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &:first-of-type {
+        margin-left: 0;
+      }
     }
   }
 }

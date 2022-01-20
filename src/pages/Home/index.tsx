@@ -1,21 +1,26 @@
 import './index.scss';
+import {Link} from 'react-router-dom';
 import {Button} from '../../components/Button';
 import Sewa from '../../assets/images/sewa.svg';
 
 interface CategoryCardProps {
   image: string;
+  link: string;
   text: string;
 }
 
 const SECTION_TWO = [
   {
     image: 'uiux',
+    link:  'uiux',
     text:  'UI/UX design'
   }, {
     image: 'branding',
+    link:  'branding',
     text:  'Branding'
   }, {
     image: 'illustration',
+    link:  'illustration',
     text:  'Illustration'
   }
 ];
@@ -38,10 +43,10 @@ const SectionOne = () =>
     </div>
   </div>;
 
-const CategoryCard = ({text, image}: CategoryCardProps) =>
+const CategoryCard = ({text, image, link}: CategoryCardProps) =>
   <div className="category-card">
     <img src={`${process.env.PUBLIC_URL}/images/${image}.png`} className="category-image" alt={text} />
-    <p className="category-title">{text}</p>
+    <Link className="category-title" to={link}>{text}</Link>
   </div>;
 
 const SectionTwo = () => {

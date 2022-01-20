@@ -56,9 +56,10 @@
       }
 
       .category-title {
-        color:       $sehwa-text-primary;
-        font-family: Bauhaus;
-        font-size:   rem-calc(72);
+        color:           $sehwa-text-primary;
+        font-family:     Bauhaus;
+        font-size:       rem-calc(72);
+        text-decoration: none;
 
         &:hover {
           cursor:          pointer;

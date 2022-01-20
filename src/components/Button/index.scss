@@ -8,8 +8,16 @@
   font-weight: bold;
 
   &__regular {
-    color:   $sehwa-text-primary;
-    padding: 26px;
+    background:      transparent;
+    background-size: contain;
+    color:           $sehwa-text-primary;
+    padding:         26px;
+    transition:      background 2s ease-in-out;
+
+    &:hover, &:active {
+      background:      url('../../assets/images/button-circle.svg') no-repeat center;
+      background-size: contain;
+    }
   }
 
   &:hover {
