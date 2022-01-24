@@ -1,0 +1,17 @@
+@import './src/assets/styles/functions';
+@import './src/assets/styles/variables';
+
+.banner {
+  align-items:     center;
+  background:      #36575A;
+  color:           $sehwa-background;
+  display:         flex;
+  height:          482px;
+  justify-content: center;
+  width:           100%;
+
+  .banner-text {
+    font-family: Bauhaus;
+    font-size:   rem-calc(96);
+  }
+}

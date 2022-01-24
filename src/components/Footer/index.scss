@@ -3,10 +3,13 @@
 
 footer {
   align-items:     center;
+  bottom:          0;
   display:         flex;
   justify-content: space-between;
+  left:            0;
   margin-bottom:   100px;
   padding:         0 70px;
+  position:        absolute;
   width:           100vw;
 
   .connect {
@@ -23,7 +26,7 @@ footer {
       }
 
       &:first-child {
-        margin-lft: 0;
+        margin-left: 0;
       }
 
       img {
