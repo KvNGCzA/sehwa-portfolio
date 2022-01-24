@@ -1,0 +1,31 @@
+@import './src/assets/styles/functions';
+@import './src/assets/styles/variables';
+
+.sections {
+  display:               grid;
+  grid-column-gap:       36px;
+  grid-row-gap:          36px;
+  grid-template-columns: repeat(auto-fill, 45%);
+  justify-content:       space-between;
+  margin:                206px auto 40px;
+  max-width:             1210px;
+
+  .section-card {
+    text-align: left;
+
+    .card-title {
+      font-family: Bauhaus;
+      font-size:   rem-calc(50);
+    }
+
+    .card-title,
+    .card-description {
+      color: $sehwa-text-primary;
+    }
+
+    .card-description {
+      font-family: Poppins;
+      font-size:   rem-calc(25);
+    }
+  }
+}

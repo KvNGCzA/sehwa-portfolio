@@ -1,0 +1,11 @@
+@import './src/assets/styles/functions';
+@import './src/assets/styles/variables';
+
+.gallery {
+  background:    $sehwa-text-primary;
+  border-radius: 30px;
+  box-shadow:    $gallery-shadow;
+  height:        678px;
+  margin:        0 auto;
+  width:         1062px;
+}
