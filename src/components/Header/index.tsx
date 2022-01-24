@@ -1,22 +1,24 @@
 import './index.scss';
 import {CSSProperties, useCallback, useEffect, useState} from 'react';
 import {Link, NavLink} from 'react-router-dom';
+import {Page} from '../../core/enums/branding.enums';
 import {Button} from '../Button';
 
 const LINKS = [
   {
-    link: '/uiux',
+    link: Page.UIUX,
     text: 'UI/UX Design'
   }, {
-    link: '/branding',
+    link: Page.BRANDING,
     text: 'Branding'
   }, {
-    link: '/illustration',
+    link: Page.ILLUSTRATION,
     text: 'Illustration'
   }
 ];
 
-const isActive = ({isActive}: { isActive: boolean }): string => isActive ? 'nav__item nav__active' : 'nav__item';
+const isActive = ({isActive}: { isActive: boolean }): string =>
+  isActive ? 'nav__item nav__active' : 'nav__item';
 
 export const Header = ({linksStyle}: { linksStyle: CSSProperties }) => {
   const [scrollStyles, setScrollStyles] = useState<CSSProperties | null>();
@@ -52,10 +54,19 @@ export const Header = ({linksStyle}: { linksStyle: CSSProperties }) => {
       </div>
       <ul className="nav">
         {LINKS.map(({link, text}) =>
-          <NavLink className={isActive} key={text} to={link}><Button
-            text={text}
-            className="header-link"
-            styles={{...linksStyle, ...scrollStyles}} /></NavLink>
+          <NavLink
+            className={isActive}
+            key={text}
+            to={link}
+            children={({isActive: isActiveLink}) =>
+              <Button
+                text={text}
+                className="header-link"
+                styles={{...linksStyle, ...scrollStyles}}
+                isActive={isActiveLink}
+                isDark={Boolean(headerStyles?.backgroundColor)}
+              />}
+          ></NavLink>
         )}
       </ul>
     </header>

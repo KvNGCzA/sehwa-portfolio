@@ -28,13 +28,6 @@
   .nav {
     list-style: none;
 
-    &__active {
-      .btn {
-        background:      url('../../assets/images/button-circle.svg') no-repeat center;
-        background-size: contain;
-      }
-    }
-
     .header-link {
       color:           $sehwa-text-primary;
       font-size:       rem-calc(24);

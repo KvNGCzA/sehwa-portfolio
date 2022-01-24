@@ -6,6 +6,19 @@
   font-family: Poppins;
   font-size:   rem-calc(25);
   font-weight: bold;
+  position:    relative;
+
+  .circle {
+    height:   100%;left: 0;
+    opacity:  0;
+    position: absolute;
+    top:      0;
+    width:    100%;
+
+    &--active {
+      opacity: 1;
+    }
+  }
 
   &__regular {
     background:      transparent;
@@ -13,14 +26,13 @@
     color:           $sehwa-text-primary;
     padding:         26px;
     transition:      background 2s ease-in-out;
-
-    &:hover, &:active {
-      background:      url('../../assets/images/button-circle.svg') no-repeat center;
-      background-size: 100% 100%;
-    }
   }
 
   &:hover {
     cursor: pointer;
+
+    .circle {
+      opacity: 1;
+    }
   }
 }

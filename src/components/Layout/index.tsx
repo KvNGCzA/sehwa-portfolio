@@ -5,14 +5,18 @@ import {Gallery} from '../Gallery';
 
 interface LayoutProps {
   children?: any;
-  params: any;
+  params: {
+    buttonText?: string;
+    tagline?: string;
+    sections: any[];
+  };
 }
 
 export const Layout = ({params, children}: LayoutProps) => {
   return (
     <div className="page page__branding">
       <p className="tagline">{params.tagline}</p>
-      <Button text={params.buttonText} className="view-btn" />
+      {params.buttonText ? <Button text={params.buttonText} className="view-btn" /> : null}
 
       <Gallery />
 

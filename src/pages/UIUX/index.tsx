@@ -2,7 +2,7 @@ import './index.scss';
 import {Gallery} from '../../components/Gallery';
 import {Layout} from '../../components/Layout';
 
-const BRANDING_PARAMS = {
+const UIUX_PARAMS = {
   tagline:    `I am Product designer with experience in UI/UX design, Ux copywriting and illustration based on earth. Passionate about building great products, visual designs, branding& solving user problems through simple, intuitive designs.`,
   buttonText: 'Let’s talk',
   sections:   [
@@ -19,7 +19,7 @@ const BRANDING_PARAMS = {
   ]
 };
 
-export const UIUX = () => (<Layout params={BRANDING_PARAMS}>
+export const UIUX = () => (<Layout params={UIUX_PARAMS}>
   <div className="wireframes">
     <h2 className="wireframes__header">Wireframes</h2>
     <Gallery />

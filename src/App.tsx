@@ -1,4 +1,5 @@
 import React, {CSSProperties, useEffect, useState} from 'react';
+import {Illustration} from './pages/Illustration';
 import {UIUX} from './pages/UIUX';
 import {Page} from './core/enums/branding.enums';
 import {Banner} from './components/Banner';
@@ -69,6 +70,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path={Page.BRANDING} element={<Branding />} />
         <Route path={Page.UIUX} element={<UIUX />} />
+        <Route path={Page.ILLUSTRATION} element={<Illustration />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
