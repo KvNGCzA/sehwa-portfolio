@@ -1,0 +1,22 @@
+@import './src/assets/styles/functions';
+@import './src/assets/styles/variables';
+
+.page {
+  align-items:     center;
+  display:         flex;
+  flex-direction:  column;
+  justify-content: center;
+  padding:         78px 0;
+
+  .tagline {
+    font-family: Poppins;
+    font-size:   rem-calc(25);
+    margin:      0 auto;
+    max-width:   1088px;
+    text-align:  center;
+  }
+
+  .view-btn {
+    margin: 50px 0;
+  }
+}
