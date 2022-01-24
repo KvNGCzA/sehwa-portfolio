@@ -1,4 +1,5 @@
 import './index.scss';
+import {Gallery} from '../../components/Gallery';
 import {Layout} from '../../components/Layout';
 
 const BRANDING_PARAMS = {
@@ -13,9 +14,17 @@ const BRANDING_PARAMS = {
       title:       'Methodology',
       description: `The research stage was somewhat easy to breakdown because the problem was a common issue at the time, which made it easy to create a focus group that a survey was sent to.
 
-The Survey: A group of 5 people were pulled from different industries and a questionnaire was sent to them.`
+  The Survey: A group of 5 people were pulled from different industries and a questionnaire was sent to them.`
     }
   ]
 };
 
-export const UIUX = () => <Layout params={BRANDING_PARAMS} />;
+export const UIUX = () => (<Layout params={BRANDING_PARAMS}>
+  <div className="wireframes">
+    <h2 className="wireframes__header">Wireframes</h2>
+    <Gallery />
+
+    <h2 className="wireframes__header">User Flow</h2>
+    <Gallery />
+  </div>
+</Layout>);

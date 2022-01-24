@@ -8,7 +8,7 @@ interface BannerProps {
 export const Banner = ({bannerStyles, bannerText}: BannerProps) => {
   return (
     <div className="banner" style={bannerStyles}>
-      <p className="banner-text">{bannerText}</p>
+      <h1 className="banner-text">{bannerText}</h1>
     </div>
   );
 };

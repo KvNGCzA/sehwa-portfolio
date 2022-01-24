@@ -14,8 +14,9 @@
     text-align: left;
 
     .card-title {
-      font-family: Bauhaus;
-      font-size:   rem-calc(50);
+      font-family:   Bauhaus;
+      font-size:     rem-calc(50);
+      margin-bottom: 50px;
     }
 
     .card-title,
@@ -26,6 +27,8 @@
     .card-description {
       font-family: Poppins;
       font-size:   rem-calc(25);
+      text-align:  justify;
+      white-space: pre-line;
     }
   }
 }

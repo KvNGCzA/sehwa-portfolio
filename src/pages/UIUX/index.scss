@@ -1,0 +1,12 @@
+@import './src/assets/styles/variables';
+@import './src/assets/styles/functions';
+
+.wireframes {
+  &__header {
+    color:       $sehwa-text-primary;
+    font-family: Bauhaus;
+    font-size:   rem-calc(50);
+    margin:      90px 0;
+    text-align:  center;
+  }
+}
