@@ -6,9 +6,15 @@ interface BannerProps {
 }
 
 export const Banner = ({bannerStyles, bannerText}: BannerProps) => {
-  return (
-    <div className="banner" style={bannerStyles}>
-      <h1 className="banner-text">{bannerText}</h1>
-    </div>
-  );
-};
+         return (
+           <div className="banner" style={bannerStyles}>
+             <div className="banner-text">
+               <h1><span>{bannerText}</span> <span>{bannerText}</span></h1>
+             </div>
+             <div className="banner-text banner-text--two">
+               <h1><span>{bannerText}</span> <span>{bannerText}</span></h1>
+             </div>
+           </div>
+         );
+       }
+;

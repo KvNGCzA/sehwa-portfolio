@@ -8,10 +8,43 @@
   display:         flex;
   height:          482px;
   justify-content: center;
-  width:           100%;
+  width:           100vw;
 
   .banner-text {
-    font-family: Bauhaus;
-    font-size:   rem-calc(96);
+    margin:      0 auto;
+    overflow:    hidden;
+    position:    absolute;
+    white-space: nowrap;
+    width:       100%;
+
+    h1 {
+      animation:      scrollText 14s infinite linear;
+      display:        inline-block;
+      font-family:    Bauhaus;
+      letter-spacing: 4px;
+      padding-left:   100%;
+
+      span {
+        flex:      1;
+        font-size: rem-calc(96);
+        padding:   0 70px;
+        position:  relative;
+      }
+    }
+
+    &--two {
+      h1 {
+        animation-delay: 7s;
+      }
+    }
+  }
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
   }
 }

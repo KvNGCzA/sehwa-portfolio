@@ -41,7 +41,7 @@ const getBannerText = (path: string): string => {
     case Page.UIUX:
       return 'UI/UX design';
     case Page.ILLUSTRATION:
-      return 'Illustration';
+      return 'Illustrations';
     default:
       return '';
   }
@@ -51,20 +51,28 @@ const App = () => {
   const location                        = useLocation();
   const [bannerStyles, setBannerStyles] = useState<CSSProperties>({});
   const [bannerText, setBannerText]     = useState<string>('');
-  const [linksStyle, setLinksStyle]     = useState<CSSProperties>({});
+  const [headerStyles, setHeaderStyles] = useState<{ linksStyle?: CSSProperties; headerStyles?: CSSProperties }>({
+    linksStyle:   {},
+    headerStyles: {}
+  });
 
   useEffect(() => {
     const path = location.pathname.replace('/', '');
-    setBannerStyles(getBannerStyles(path));
-    setBannerText(getBannerText(path));
-    setLinksStyle(!Boolean(path) ? {} : {
-      color: '#FFFEF2'
+    setBannerStyles(() => {
+      const styles = getBannerStyles(path);
+      setHeaderStyles(!Boolean(path) ? {} : {
+        linksStyle:   {color: '#FFFEF2'},
+        headerStyles: {backgroundColor: styles.backgroundColor}
+      });
+      return styles;
     });
+    setBannerText(getBannerText(path));
+
   }, [location]);
 
   return (
     <div className="App">
-      <Header linksStyle={linksStyle} />
+      <Header styles={headerStyles} />
       <Banner bannerStyles={bannerStyles} bannerText={bannerText} />
       <Routes>
         <Route path="/" element={<Home />} />
