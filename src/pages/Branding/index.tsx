@@ -1,4 +1,5 @@
 import './index.scss';
+import {useEffect} from 'react';
 import {Layout} from '../../components/Layout';
 
 const BRANDING_PARAMS = {
@@ -15,4 +16,18 @@ const BRANDING_PARAMS = {
   ]
 };
 
-export const Branding = () => <Layout params={BRANDING_PARAMS} />;
+export const Branding = ({setBannerStyles, setBannerText, setHeaderStyles}: any) => {
+  useEffect(() => {
+    setBannerStyles({
+      color:           '#FFFEF2',
+      backgroundColor: '#36575A'
+    });
+    setBannerText('Branding');
+    setHeaderStyles({
+      linksStyle:   {color: '#FFFEF2'},
+      headerStyles: {backgroundColor: '#36575A'}
+    });
+  }, [setBannerStyles, setBannerText, setHeaderStyles]);
+
+  return <Layout params={BRANDING_PARAMS} />;
+};

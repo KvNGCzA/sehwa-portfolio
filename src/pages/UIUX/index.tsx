@@ -1,4 +1,6 @@
 import './index.scss';
+import {useEffect} from 'react';
+import {ImageProps} from '../../components/Image';
 import {Gallery} from '../../components/Gallery';
 import {Layout} from '../../components/Layout';
 
@@ -19,12 +21,67 @@ const UIUX_PARAMS = {
   ]
 };
 
-export const UIUX = () => (<Layout params={UIUX_PARAMS}>
-  <div className="wireframes">
-    <h2 className="wireframes__header">Wireframes</h2>
-    <Gallery />
+const GALLERY_LINK         = (link: string) => `${process.env.PUBLIC_URL}/images/gallery/sofri-${link}.png`;
+const IMAGES: ImageProps[] = [
+  {
+    src: GALLERY_LINK('collage'),
+    alt: 'sofri collage'
+  }, {
+    src: GALLERY_LINK('1'),
+    alt: 'sofri mobile'
+  }, {
+    src: GALLERY_LINK('2'),
+    alt: 'sofri mobile'
+  }, {
+    src: GALLERY_LINK('3'),
+    alt: 'sofri mobile'
+  }, {
+    src: GALLERY_LINK('4'),
+    alt: 'sofri mobile'
+  }
+];
 
-    <h2 className="wireframes__header">User Flow</h2>
-    <Gallery />
-  </div>
-</Layout>);
+const WIREFRAMES: ImageProps[] = [
+  {
+    src: GALLERY_LINK('wireframe-collage'),
+    alt: 'sofri collage'
+  }, {
+    src: GALLERY_LINK('wireframe-1'),
+    alt: 'sofri mobile'
+  }, {
+    src: GALLERY_LINK('wireframe-2'),
+    alt: 'sofri mobile'
+  }, {
+    src: GALLERY_LINK('wireframe-3'),
+    alt: 'sofri mobile'
+  }, {
+    src: GALLERY_LINK('wireframe-4'),
+    alt: 'sofri mobile'
+  }
+];
+
+export const UIUX = ({setBannerStyles, setBannerText, setHeaderStyles}: any) => {
+  useEffect(() => {
+    setBannerStyles({
+      color:           '#FFFEF2',
+      backgroundColor: '#4D8886'
+    });
+    setBannerText('UI/UX design');
+    setHeaderStyles({
+      linksStyle:   {color: '#FFFEF2'},
+      headerStyles: {backgroundColor: '#4D8886'}
+    });
+  }, [setBannerStyles, setBannerText, setHeaderStyles]);
+
+  return (
+    <Layout params={UIUX_PARAMS} images={IMAGES}>
+      <div className="wireframes">
+        <h2 className="wireframes__header">Wireframes</h2>
+        <Gallery images={WIREFRAMES} />
+
+        <h2 className="wireframes__header">User Flow</h2>
+        <Gallery />
+      </div>
+    </Layout>
+  );
+};

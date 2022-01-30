@@ -1,5 +1,5 @@
 import './index.scss';
-//import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Button} from '../../components/Button';
 import Sewa from '../../assets/images/sewa.svg';
@@ -128,7 +128,18 @@ const SectionTwo = () => {
   );
 };
 
-export const Home = () => {
+export const Home = ({setBannerStyles, setBannerText, setHeaderStyles}: any) => {
+  useEffect(() => {
+    setBannerStyles({
+      display: 'none'
+    });
+    setBannerText('');
+    setHeaderStyles({
+      linksStyle:   {color: '#4B4B4B'},
+      headerStyles: {backgroundColor: '#36575A'}
+    });
+  }, [setBannerStyles, setBannerText, setHeaderStyles]);
+
   return (
     <div className="main">
       <SectionOne />

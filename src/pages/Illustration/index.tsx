@@ -1,4 +1,5 @@
 import './index.scss';
+import {useEffect} from 'react';
 import {Gallery} from '../../components/Gallery';
 import {Layout} from '../../components/Layout';
 
@@ -7,10 +8,24 @@ const ILLUSTRATION_PARAMS = {
   sections: []
 };
 
-export const Illustration = () => {
-  return <Layout params={ILLUSTRATION_PARAMS} wireframes={false}>
-    <div className="wireframes">
-      <Gallery />
-    </div>
-  </Layout>;
+export const Illustration = ({setBannerStyles, setBannerText, setHeaderStyles}: any) => {
+  useEffect(() => {
+    setBannerStyles({
+      color:           '#FFFEF2',
+      backgroundColor: '#36575A'
+    });
+    setBannerText('Illustrations');
+    setHeaderStyles({
+      linksStyle:   {color: '#FFFEF2'},
+      headerStyles: {backgroundColor: '#36575A'}
+    });
+  }, [setBannerStyles, setBannerText, setHeaderStyles]);
+
+  return (
+    <Layout params={ILLUSTRATION_PARAMS} wireframes={false}>
+      <div className="wireframes">
+        <Gallery />
+      </div>
+    </Layout>
+  );
 };
