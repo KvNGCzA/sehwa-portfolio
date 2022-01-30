@@ -1,4 +1,5 @@
 import './index.scss';
+import {Fragment} from 'react';
 import {BrandingSection} from '../BrandingSection';
 import {Button} from '../Button';
 import {Gallery} from '../Gallery';
@@ -10,17 +11,22 @@ interface LayoutProps {
     tagline?: string;
     sections: any[];
   };
+  wireframes?: boolean;
 }
 
-export const Layout = ({params, children}: LayoutProps) => {
+export const Layout = ({params, children, wireframes = true}: LayoutProps) => {
   return (
     <div className="page page__branding">
       <p className="tagline">{params.tagline}</p>
       {params.buttonText ? <Button text={params.buttonText} className="view-btn" /> : null}
 
-      <Gallery />
+      {wireframes ?
+        <Fragment>
+          <Gallery />
+          <BrandingSection sections={params.sections} />
+        </Fragment> :
+        null}
 
-      <BrandingSection sections={params.sections} />
       {children}
     </div>
   );

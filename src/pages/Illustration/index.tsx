@@ -8,12 +8,8 @@ const ILLUSTRATION_PARAMS = {
 };
 
 export const Illustration = () => {
-  return <Layout params={ILLUSTRATION_PARAMS}>
+  return <Layout params={ILLUSTRATION_PARAMS} wireframes={false}>
     <div className="wireframes">
-      <h2 className="wireframes__header">Wireframes</h2>
-      <Gallery />
-
-      <h2 className="wireframes__header">User Flow</h2>
       <Gallery />
     </div>
   </Layout>;

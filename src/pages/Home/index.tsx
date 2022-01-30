@@ -1,7 +1,10 @@
 import './index.scss';
+//import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Button} from '../../components/Button';
 import Sewa from '../../assets/images/sewa.svg';
+
+//import Typewriter from 'typewriter-effect';
 
 interface CategoryCardProps {
   image: string;
@@ -48,6 +51,68 @@ const SectionOne = () => {
       </div>
     </div>);
 };
+
+//const SectionOne = () => {
+//  const [typingDone, setTypingDone] = useState(false);
+//  const handleLetsTalk              = () => {
+//    window.scrollTo({left: 0, top: document.body.scrollHeight, behavior: 'smooth'});
+//  };
+//
+//  const handleSetShowButton = (value: boolean): void => {
+//    setTypingDone(value);
+//  };
+//
+//  useEffect(() => {
+////    const header = document.getElementById('header') as HTMLElement;
+////    if (!typingDone) {
+////      document.body.style.position = 'fixed';
+////      header.style.display         = 'none';
+////    } else {
+////      document.body.style.position = 'relative';
+////      header.style.display         = 'flex';
+////    }
+//  }, [typingDone]);
+//
+//  return (
+//    <div
+//      className="section section__one" style={{
+//      background: `url('${Sewa}') no-repeat center`
+//    }}>
+//      <div className="intro-text">
+//        <p className="content">
+//          <Typewriter
+//            onInit={(typewriter) => {
+//              typewriter
+//                .changeDelay(80)
+//                .typeString('<b>Hi!</b>')
+//                .pauseFor(2000)
+//                .deleteAll()
+//                .typeString(`<b>I'm Adesewa</b>`)
+//                .pauseFor(500)
+//                .typeString(`<b>!!!</b>`)
+//                .pauseFor(2000)
+//                .deleteAll()
+//                .typeString(INTRO_STRING)
+//                .pauseFor(2000)
+//                .typeString(INTRO_STRING_TWO)
+//                .pauseFor(3000)
+//                .callFunction(() => {
+//                  handleSetShowButton(true);
+//                })
+//                .start();
+//            }}
+//            options={{
+//              autoStart:        true,
+//              loop:             false,
+//              wrapperClassName: ''
+//            }}
+//          />
+//        </p>
+//
+//        {typingDone ? <Button text="Let's talk" className="lets-talk" handleClick={handleLetsTalk} /> : null}
+//      </div>
+//    </div>);
+//};
 
 const CategoryCard = ({text, image, link}: CategoryCardProps) =>
   <div className="category-card">
