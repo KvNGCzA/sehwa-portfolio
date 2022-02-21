@@ -5,6 +5,8 @@ import { Layout } from "../../components/Layout";
 import { PROJECTS } from "./index.data";
 import { useNavigate, useParams } from "react-router-dom";
 import { Project } from "../../core/interfaces/index.interface";
+import { ReactComponent as NextPage } from "../../assets/icons/next-page.svg";
+import { ReactComponent as PrevPage } from "../../assets/icons/prev-page.svg";
 
 export const UIUX = ({
   setBannerStyles,
@@ -12,6 +14,7 @@ export const UIUX = ({
   setHeaderStyles,
 }: any) => {
   const [project, setProject] = useState<Project>(PROJECTS[0]);
+  const [pageIndex, setPageIndex] = useState<number>(0);
   const params = useParams();
   const navigate = useNavigate();
 
@@ -28,13 +31,32 @@ export const UIUX = ({
   }, [setBannerStyles, setBannerText, setHeaderStyles, project.name]);
 
   useEffect(() => {
-    const selectedProject = PROJECTS.find(
-      (curr) => curr.slug === params.project
-    );
+    if (!params.project) {
+      navigate(`/uiux/${PROJECTS[0].slug}`);
+      return;
+    }
+
+    const selectedProject = PROJECTS.find((curr, index) => {
+      if (curr.slug === params.project) {
+        setPageIndex(index);
+        return true;
+      }
+
+      return false;
+    });
 
     if (selectedProject) setProject(selectedProject);
     else navigate(`/uiux/${PROJECTS[0].slug}`);
-  }, [params.project, navigate]);
+  }, [params.project, navigate, pageIndex]);
+
+  const navigateProjects = (selectedProject: Project) => {
+    navigate(`/uiux/${selectedProject.slug}`);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <Layout params={project} images={project.mainImages}>
@@ -48,6 +70,23 @@ export const UIUX = ({
             <Gallery images={project.userFlow} />
           </Fragment>
         ) : null}
+
+        <div className="navigation">
+          <button
+            className={!pageIndex ? "hidden" : ""}
+            onClick={() => navigateProjects(PROJECTS[pageIndex - 1])}
+          >
+            <PrevPage />
+            Previous
+          </button>
+          <button
+            className={pageIndex === PROJECTS.length - 1 ? "hidden" : ""}
+            onClick={() => navigateProjects(PROJECTS[pageIndex + 1])}
+          >
+            Next
+            <NextPage />
+          </button>
+        </div>
       </div>
     </Layout>
   );

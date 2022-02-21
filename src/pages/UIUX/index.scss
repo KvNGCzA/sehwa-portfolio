@@ -1,2 +1,52 @@
 @import './src/assets/styles/variables';
 @import './src/assets/styles/functions';
+
+.wireframes {
+  &__header {
+    color:       $sehwa-text-primary;
+    font-family: Bauhaus;
+    font-size:   rem-calc(50);
+    margin:      90px 0;
+    text-align:  center;
+  }
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 100px;
+
+  button {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    font-size: rem-calc(25);
+    font-family: Poppins;
+    opacity: 0.7;
+    color: $sehwa-text-primary;
+
+    &:first-of-type {
+      svg {
+        margin-right: 30px;
+      }
+    }
+
+    &:last-of-type {
+      svg {
+        margin-left: 30px;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+}
+
+.hidden {
+  opacity: 0 !important;
+}

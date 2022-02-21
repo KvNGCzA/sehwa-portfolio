@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { BrandingSection } from "../BrandingSection";
 import { Button } from "../Button";
 import { Gallery } from "../Gallery";
-import { Image, LayoutProps } from "../../core/interfaces/index.interface";
+import { LayoutProps } from "../../core/interfaces/index.interface";
 
 export const Layout = ({
   params,
