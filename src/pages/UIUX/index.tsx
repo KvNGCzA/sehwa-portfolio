@@ -1,86 +1,53 @@
-import './index.scss';
-import {useEffect} from 'react';
-import {ImageProps} from '../../components/Image';
-import {Gallery} from '../../components/Gallery';
-import {Layout} from '../../components/Layout';
+import "./index.scss";
+import { Fragment, useEffect, useState } from "react";
+import { Gallery } from "../../components/Gallery";
+import { Layout } from "../../components/Layout";
+import { PROJECTS } from "./index.data";
+import { useNavigate, useParams } from "react-router-dom";
+import { Project } from "../../core/interfaces/index.interface";
 
-const UIUX_PARAMS = {
-  tagline:    `I am Product designer with experience in UI/UX design, Ux copywriting and illustration based on earth. Passionate about building great products, visual designs, branding& solving user problems through simple, intuitive designs.`,
-  buttonText: 'Let’s talk',
-  sections:   [
-    {
-      title:       'Project Goal',
-      description: `The goal of the project was to help people form better and healthy habit and it was created during the COVID-19 period in which people were stuck and had their daily routines completely disrupted. No access to the gym, sleep routines were ruined and people wanted a way to get their routine back. Aura mobile app is an all-in-one solution to that problem.`,
-      buttonText:  'Play prototype'
-    }, {
-      title:       'Methodology',
-      description: `The research stage was somewhat easy to breakdown because the problem was a common issue at the time, which made it easy to create a focus group that a survey was sent to.
+export const UIUX = ({
+  setBannerStyles,
+  setBannerText,
+  setHeaderStyles,
+}: any) => {
+  const [project, setProject] = useState<Project>(PROJECTS[0]);
+  const params = useParams();
+  const navigate = useNavigate();
 
-  The Survey: A group of 5 people were pulled from different industries and a questionnaire was sent to them.`
-    }
-  ]
-};
-
-const GALLERY_LINK         = (link: string) => `${process.env.PUBLIC_URL}/images/gallery/sofri-${link}.png`;
-const IMAGES: ImageProps[] = [
-  {
-    src: GALLERY_LINK('collage'),
-    alt: 'sofri collage'
-  }, {
-    src: GALLERY_LINK('1'),
-    alt: 'sofri mobile'
-  }, {
-    src: GALLERY_LINK('2'),
-    alt: 'sofri mobile'
-  }, {
-    src: GALLERY_LINK('3'),
-    alt: 'sofri mobile'
-  }, {
-    src: GALLERY_LINK('4'),
-    alt: 'sofri mobile'
-  }
-];
-
-const WIREFRAMES: ImageProps[] = [
-  {
-    src: GALLERY_LINK('wireframe-collage'),
-    alt: 'sofri collage'
-  }, {
-    src: GALLERY_LINK('wireframe-1'),
-    alt: 'sofri mobile'
-  }, {
-    src: GALLERY_LINK('wireframe-2'),
-    alt: 'sofri mobile'
-  }, {
-    src: GALLERY_LINK('wireframe-3'),
-    alt: 'sofri mobile'
-  }, {
-    src: GALLERY_LINK('wireframe-4'),
-    alt: 'sofri mobile'
-  }
-];
-
-export const UIUX = ({setBannerStyles, setBannerText, setHeaderStyles}: any) => {
   useEffect(() => {
     setBannerStyles({
-      color:           '#FFFEF2',
-      backgroundColor: '#4D8886'
+      color: "#FFFEF2",
+      backgroundColor: "#4D8886",
     });
-    setBannerText('UI/UX design');
+    setBannerText(project.name);
     setHeaderStyles({
-      linksStyle:   {color: '#FFFEF2'},
-      headerStyles: {backgroundColor: '#4D8886'}
+      linksStyle: { color: "#FFFEF2" },
+      headerStyles: { backgroundColor: "#4D8886" },
     });
-  }, [setBannerStyles, setBannerText, setHeaderStyles]);
+  }, [setBannerStyles, setBannerText, setHeaderStyles, project.name]);
+
+  useEffect(() => {
+    const selectedProject = PROJECTS.find(
+      (curr) => curr.slug === params.project
+    );
+
+    if (selectedProject) setProject(selectedProject);
+    else navigate(`/uiux/${PROJECTS[0].slug}`);
+  }, [params.project, navigate]);
 
   return (
-    <Layout params={UIUX_PARAMS} images={IMAGES}>
+    <Layout params={project} images={project.mainImages}>
       <div className="wireframes">
         <h2 className="wireframes__header">Wireframes</h2>
-        <Gallery images={WIREFRAMES} />
+        <Gallery images={project.wireframes} />
 
-        <h2 className="wireframes__header">User Flow</h2>
-        <Gallery />
+        {project.userFlow?.length ? (
+          <Fragment>
+            <h2 className="wireframes__header">User Flow</h2>
+            <Gallery images={project.userFlow} />
+          </Fragment>
+        ) : null}
       </div>
     </Layout>
   );
